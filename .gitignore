@@ -1,0 +1,24 @@
+# Secrets (clés API Claude / OpenAI)
+.env
+.env.*
+!.env.example
+
+# Dépendances
+node_modules/
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Build
+dist/
+build/
+
+# Système / éditeurs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log
