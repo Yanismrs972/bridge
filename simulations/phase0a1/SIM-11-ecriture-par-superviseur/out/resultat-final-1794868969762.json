@@ -1,0 +1,14 @@
+{
+  "schema": "orch/1",
+  "type": "final",
+  "mode": "simulation",
+  "outcome": "stopped",
+  "code": "MODIFICATION_PENDANT_SUPERVISEUR",
+  "detail": "{\"added\":[\"projet/data/intrus.txt\"],\"removed\":[],\"changed\":[],\"total\":1}",
+  "calls": {
+    "supervisor": 1,
+    "executor": 0
+  },
+  "endedAt": "2026-11-16T22:42:49.761Z",
+  "usage": []
+}

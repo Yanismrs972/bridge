@@ -1,0 +1,14 @@
+{
+  "schema": "orch/1",
+  "type": "final",
+  "mode": "simulation",
+  "outcome": "stopped",
+  "code": "QUOTA_SUPERVISEUR",
+  "detail": "{\"type\":\"turn.failed\",\"error\":{\"message\":\"You've hit your usage limit\"}}",
+  "calls": {
+    "supervisor": 1,
+    "executor": 0
+  },
+  "endedAt": "2026-11-16T22:42:49.773Z",
+  "usage": []
+}

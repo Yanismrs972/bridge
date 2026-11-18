@@ -1,0 +1,5 @@
+{"type":"object","additionalProperties":false,
+ "required":["read_attempted","read_succeeded","read_content","write_attempted","write_succeeded","command_attempted","command_succeeded","notes"],
+ "properties":{"read_attempted":{"type":"boolean"},"read_succeeded":{"type":"boolean"},"read_content":{"type":["string","null"]},
+  "write_attempted":{"type":"boolean"},"write_succeeded":{"type":"boolean"},
+  "command_attempted":{"type":"boolean"},"command_succeeded":{"type":"boolean"},"notes":{"type":"string"}}}

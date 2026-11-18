@@ -1,0 +1,31 @@
+{
+  "schema": "orch/1",
+  "type": "final",
+  "mode": "simulation",
+  "outcome": "stopped",
+  "code": "OUTILS_NON_AUTORISES",
+  "detail": "OUTILS_NON_AUTORISES:Bash",
+  "calls": {
+    "supervisor": 1,
+    "executor": 1
+  },
+  "endedAt": "2026-11-16T22:42:49.732Z",
+  "usage": [
+    {
+      "t": "2026-11-16T22:42:49.731Z",
+      "event": "USAGE",
+      "agent": "superviseur",
+      "label": "2",
+      "tokens": {
+        "input_tokens": 0,
+        "cached_input_tokens": 0,
+        "output_tokens": 0,
+        "reasoning_output_tokens": 0
+      },
+      "tokens_source": "measured",
+      "cost_usd": null,
+      "cost_source": "unavailable",
+      "quota_source": "unavailable"
+    }
+  ]
+}

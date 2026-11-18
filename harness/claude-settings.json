@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "blockReadsOutsideWorkingDirectories": true,
+    "blockWritesOutsideWorkingDirectories": true,
+    "disableBypassPermissionsMode": "disable",
+    "denyInsteadOfPrompting": true,
+    "deny": ["Bash", "PowerShell", "WebFetch", "WebSearch", "Agent", "NotebookEdit", "mcp__*"]
+  },
+  "disableAllHooks": true,
+  "enableArtifact": false
+}

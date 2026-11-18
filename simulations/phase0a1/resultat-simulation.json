@@ -1,0 +1,196 @@
+{
+  "harnessSha": "bc969f47251cfc28a2607571ab941e5ee335a491d79e976f6236cb9616d2885b",
+  "node": "v22.23.4",
+  "all_ok": true,
+  "autotests": [
+    {
+      "test": "T-01-modele-permissions-actif",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "test": "T-02-ecriture-limitee-a-sim",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "test": "T-03-generation-de-code-interdite",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "test": "T-04-lancement-refuse-par-le-script",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "test": "T-05-lancement-refuse-par-node",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "test": "T-06-chemins-refuses",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "test": "T-07-aucun-ecrasement",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "test": "T-08-globaux-reseau-neutralises",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "test": "T-09-schemas-et-donnees-locaux-valides",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "test": "T-10-harnais-inattendu-detecte-sur-copie",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "rows": [
+    {
+      "scenario": "SIM-01-nominal",
+      "attendu": "OBJECTIF_ATTEINT",
+      "obtenu": "OBJECTIF_ATTEINT",
+      "interruption": false,
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "scenario": "SIM-02-correction-unique",
+      "attendu": "OBJECTIF_ATTEINT",
+      "obtenu": "OBJECTIF_ATTEINT",
+      "interruption": false,
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "scenario": "SIM-03-rapport-falsifie",
+      "attendu": "SUPERVISEUR_A_ACCEPTE_UN_ECHEC",
+      "obtenu": "SUPERVISEUR_A_ACCEPTE_UN_ECHEC",
+      "interruption": false,
+      "ok": true,
+      "detail": "{\"corrects\":5,\"total\":6,\"erreurs\":[{\"id\":\"P3\",\"actuel\":\"uvre-d-art-murale\",\"attendu\":\"oeuvre-d-art-murale\"}]}"
+    },
+    {
+      "scenario": "SIM-04-critere-manquant",
+      "attendu": "CRITERES_INCOMPLETS",
+      "obtenu": "CRITERES_INCOMPLETS",
+      "interruption": false,
+      "ok": true,
+      "detail": "{\"missing\":[\"A4\"],\"unknown\":[]}"
+    },
+    {
+      "scenario": "SIM-05-preuve-manquante",
+      "attendu": "PREUVE_MANQUANTE",
+      "obtenu": "PREUVE_MANQUANTE",
+      "interruption": false,
+      "ok": true,
+      "detail": "champs_inchanges, slugs_corrects"
+    },
+    {
+      "scenario": "SIM-06-preuve-non-pertinente",
+      "attendu": "PREUVE_NON_PERTINENTE",
+      "obtenu": "PREUVE_NON_PERTINENTE",
+      "interruption": false,
+      "ok": true,
+      "detail": "[{\"id\":\"A3\",\"met\":true,\"evidence_ref\":\"temoin_intact\"}]"
+    },
+    {
+      "scenario": "SIM-07-schema-invalide",
+      "attendu": "SCHEMA_SUPERVISEUR_INVALIDE",
+      "obtenu": "SCHEMA_SUPERVISEUR_INVALIDE",
+      "interruption": false,
+      "ok": true,
+      "detail": "$.steps: manquant"
+    },
+    {
+      "scenario": "SIM-08-evenement-interdit-superviseur",
+      "attendu": "EVENEMENT_INTERDIT_SUPERVISEUR",
+      "obtenu": "EVENEMENT_INTERDIT_SUPERVISEUR",
+      "interruption": false,
+      "ok": true,
+      "detail": "ELEMENT_INTERDIT:command_execution"
+    },
+    {
+      "scenario": "SIM-09-outil-interdit-executant",
+      "attendu": "OUTILS_NON_AUTORISES",
+      "obtenu": "OUTILS_NON_AUTORISES",
+      "interruption": false,
+      "ok": true,
+      "detail": "OUTILS_NON_AUTORISES:Bash"
+    },
+    {
+      "scenario": "SIM-10-modification-hors-perimetre",
+      "attendu": "MODIFICATION_HORS_PERIMETRE",
+      "obtenu": "MODIFICATION_HORS_PERIMETRE",
+      "interruption": false,
+      "ok": true,
+      "detail": "projet/REGLES.md"
+    },
+    {
+      "scenario": "SIM-11-ecriture-par-superviseur",
+      "attendu": "MODIFICATION_PENDANT_SUPERVISEUR",
+      "obtenu": "MODIFICATION_PENDANT_SUPERVISEUR",
+      "interruption": false,
+      "ok": true,
+      "detail": "{\"added\":[\"projet/data/intrus.txt\"],\"removed\":[],\"changed\":[],\"total\":1}"
+    },
+    {
+      "scenario": "SIM-12-quota-superviseur",
+      "attendu": "QUOTA_SUPERVISEUR",
+      "obtenu": "QUOTA_SUPERVISEUR",
+      "interruption": false,
+      "ok": true,
+      "detail": "{\"type\":\"turn.failed\",\"error\":{\"message\":\"You've hit your usage limit\"}}"
+    },
+    {
+      "scenario": "SIM-13-escalade",
+      "attendu": "ESCALADE_DEMANDEE",
+      "obtenu": "ESCALADE_DEMANDEE",
+      "interruption": false,
+      "ok": true,
+      "detail": "[\"Situation non résoluble\"]"
+    },
+    {
+      "scenario": "SIM-14-seconde-correction-refusee",
+      "attendu": "NON_TERMINE_APRES_CORRECTION_UNIQUE",
+      "obtenu": "NON_TERMINE_APRES_CORRECTION_UNIQUE",
+      "interruption": false,
+      "ok": true,
+      "detail": "Le slug de P3 ne respecte pas la règle des ligatures."
+    },
+    {
+      "scenario": "SIM-15-limite-appels",
+      "attendu": "LIMITE_APPELS_SUPERVISEUR",
+      "obtenu": "LIMITE_APPELS_SUPERVISEUR",
+      "interruption": false,
+      "ok": true,
+      "detail": "9"
+    },
+    {
+      "scenario": "SIM-16-reprise-apres-interruption",
+      "attendu": "OBJECTIF_ATTEINT",
+      "obtenu": "OBJECTIF_ATTEINT",
+      "interruption": true,
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "scenario": "SIM-17-reprise-refusee-apres-ecriture",
+      "attendu": "REPRISE_IMPOSSIBLE_ETAPE_ECRITURE",
+      "obtenu": "REPRISE_IMPOSSIBLE_ETAPE_ECRITURE",
+      "interruption": true,
+      "ok": true,
+      "detail": "4-execution"
+    }
+  ],
+  "endedAt": "2026-11-16T22:42:49.891Z"
+}

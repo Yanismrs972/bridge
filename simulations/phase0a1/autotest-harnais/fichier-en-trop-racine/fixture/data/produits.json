@@ -1,0 +1,8 @@
+[
+  { "id": "P1", "nom": "Chaise en chêne", "slug": "chaise-en-ch-ne" },
+  { "id": "P2", "nom": "Table basse", "slug": "table-basse" },
+  { "id": "P3", "nom": "Œuvre d'art murale", "slug": "uvre-d-art-murale" },
+  { "id": "P4", "nom": "Lampe à poser", "slug": "lampe-poser" },
+  { "id": "P5", "nom": "Façade décorative", "slug": "fa-ade-d-corative" },
+  { "id": "P6", "nom": "Étagère 3 niveaux", "slug": "tag-re-3-niveaux" }
+]

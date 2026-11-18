@@ -1,0 +1,14 @@
+{
+  "schema": "orch/1",
+  "type": "final",
+  "mode": "simulation",
+  "outcome": "stopped",
+  "code": "EVENEMENT_INTERDIT_SUPERVISEUR",
+  "detail": "ELEMENT_INTERDIT:command_execution",
+  "calls": {
+    "supervisor": 1,
+    "executor": 0
+  },
+  "endedAt": "2026-11-16T22:42:49.718Z",
+  "usage": []
+}

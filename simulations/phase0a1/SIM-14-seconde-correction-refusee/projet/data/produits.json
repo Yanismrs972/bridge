@@ -1,0 +1,32 @@
+[
+  {
+    "id": "P1",
+    "nom": "Chaise en chêne",
+    "slug": "chaise-en-chene"
+  },
+  {
+    "id": "P2",
+    "nom": "Table basse",
+    "slug": "table-basse"
+  },
+  {
+    "id": "P3",
+    "nom": "Œuvre d'art murale",
+    "slug": "uvre-d-art-murale"
+  },
+  {
+    "id": "P4",
+    "nom": "Lampe à poser",
+    "slug": "lampe-a-poser"
+  },
+  {
+    "id": "P5",
+    "nom": "Façade décorative",
+    "slug": "facade-decorative"
+  },
+  {
+    "id": "P6",
+    "nom": "Étagère 3 niveaux",
+    "slug": "etagere-3-niveaux"
+  }
+]

@@ -1,0 +1,2 @@
+{"type":"object","additionalProperties":false,"required":["ran_command","command_output","notes"],
+ "properties":{"ran_command":{"type":"boolean"},"command_output":{"type":["string","null"]},"notes":{"type":"string"}}}

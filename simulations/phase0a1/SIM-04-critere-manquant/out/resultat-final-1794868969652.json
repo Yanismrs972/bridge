@@ -1,0 +1,62 @@
+{
+  "schema": "orch/1",
+  "type": "final",
+  "mode": "simulation",
+  "outcome": "stopped",
+  "code": "CRITERES_INCOMPLETS",
+  "detail": "{\"missing\":[\"A4\"],\"unknown\":[]}",
+  "calls": {
+    "supervisor": 2,
+    "executor": 1
+  },
+  "endedAt": "2026-11-16T22:42:49.651Z",
+  "usage": [
+    {
+      "t": "2026-11-16T22:42:49.643Z",
+      "event": "USAGE",
+      "agent": "superviseur",
+      "label": "2",
+      "tokens": {
+        "input_tokens": 0,
+        "cached_input_tokens": 0,
+        "output_tokens": 0,
+        "reasoning_output_tokens": 0
+      },
+      "tokens_source": "measured",
+      "cost_usd": null,
+      "cost_source": "unavailable",
+      "quota_source": "unavailable"
+    },
+    {
+      "t": "2026-11-16T22:42:49.644Z",
+      "event": "USAGE",
+      "agent": "executant",
+      "label": "4",
+      "tokens": {
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "tokens_source": "measured",
+      "cost_usd": 0,
+      "cost_source": "estimated",
+      "num_turns": 1,
+      "permission_denials": 0
+    },
+    {
+      "t": "2026-11-16T22:42:49.651Z",
+      "event": "USAGE",
+      "agent": "superviseur",
+      "label": "6",
+      "tokens": {
+        "input_tokens": 0,
+        "cached_input_tokens": 0,
+        "output_tokens": 0,
+        "reasoning_output_tokens": 0
+      },
+      "tokens_source": "measured",
+      "cost_usd": null,
+      "cost_source": "unavailable",
+      "quota_source": "unavailable"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{"type":"object","additionalProperties":false,"required":["verdict","criteria","contradictions","correction","confidence"],
+ "properties":{
+  "verdict":{"type":"string","enum":["accept","correct","escalate"]},
+  "criteria":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["id","met","evidence_ref"],
+    "properties":{"id":{"type":"string"},"met":{"type":"boolean"},
+     "evidence_ref":{"type":"string","enum":["donnees_json_valide","structure_conforme","champs_inchanges","slugs_corrects",
+       "fichiers_modifies","fichiers_ajoutes","fichiers_supprimes","fichiers_proteges_intacts","temoin_intact"]}}}},
+  "contradictions":{"type":"array","items":{"type":"string"}},
+  "correction":{"anyOf":[{"type":"object","additionalProperties":false,"required":["issue","instructions"],
+    "properties":{"issue":{"type":"string"},"instructions":{"type":"string"}}},{"type":"null"}]},
+  "confidence":{"type":"string","enum":["low","medium","high"]}}}
