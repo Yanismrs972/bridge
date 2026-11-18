@@ -1,7 +1,7 @@
 # Bridge — conception de la v1 (orchestrateur + pont)
 
 **Date :** 18 novembre 2026
-**Statut :** brouillon à valider par l'utilisateur
+**Statut :** relu, en attente de validation finale par l'utilisateur
 **Sources :** échanges de cette session, dossier `BRIDGE_ORCHESTRATEUR_IA_DOSSIER_REFERENCE` (v1.0), rapports `docs/rapports/01` à `28`, dépôt `jcharveyjr/claude-chatgpt-agent-bridge` (lu le 18/11/2026, commit du 23/07/2026).
 
 Légende : **[DÉCIDÉ]** = décision explicite de l'utilisateur · **[CHOIX]** = choix de conception de Claude, à corriger si besoin · **[OUVERT]** = à trancher par l'utilisateur.
@@ -166,8 +166,8 @@ Le superviseur reçoit la mission, le plan, la tâche, le rapport de Claude (bal
 | Limite | Défaut | Quand on l'atteint |
 |---|---|---|
 | Cycles de correction par tâche | 3 | escalade |
-| Appels Codex par mission | 8 par tâche du plan, plafonné à 80 | pause et question |
-| Appels Codex par jour (tous projets) | 30 | pause jusqu'au lendemain ou décision |
+| Appels Codex | 8 par tâche, 80 par projet [DÉCIDÉ] | pause et question |
+| Appels Codex par jour (tous projets) | 30 [DÉCIDÉ] | pause jusqu'au lendemain ou décision |
 | Tours Claude par exécution | 20 (`--max-turns`) | rapport `partial`, évaluation normale |
 | Budget Claude par exécution | 0,50 USD (`--max-budget-usd`, estimation) | idem |
 | Délai par appel Codex / Claude | 5 min / 15 min | échec classé `timeout` |
@@ -224,7 +224,7 @@ Les permissions sont appliquées **par les arguments CLI et par le contrôle a p
 
 **Claude Code**
 - Arguments repris **du harnais Phase 0A** (`claudeAdapter`) : `claude -p --restricted --tools <liste> --allowedTools <liste> --disallowedTools <liste> --strict-mcp-config --disable-slash-commands --settings <fichier> --permission-mode dontAsk --permission-prompts none --no-session-persistence --output-format stream-json --verbose --json-schema <…> --max-turns N --max-budget-usd X`.
-- Le mode `acceptEdits` global d'Agent Bridge est abandonné. Les outils sont `Read`, `Edit`, `Write`, `Glob` et `Grep`, plus les commandes autorisées (voir [OUVERT-1]). Avec `dontAsk`, tout ce qui n'est pas listé est refusé sans question.
+- Le mode `acceptEdits` global d'Agent Bridge est abandonné. Les outils sont `Read`, `Edit`, `Write`, `Glob` et `Grep`, plus les commandes de la liste blanche du projet (voir §16). Avec `dontAsk`, tout ce qui n'est pas listé est refusé sans question.
 - Le flux `stream-json` est contrôlé au fil de l'eau (`claudeEventViolation`). Un appel d'outil interdit arrête l'exécution.
 - Interdits dans tous les cas : `WebFetch`, `WebSearch`, `Agent`/`Task`, `mcp__*`, `git push`, `git remote`, toute commande de suppression récursive.
 - Variables d'environnement filtrées comme dans le harnais Phase 0A (`STRIP_ENV`) : aucune clé API transmise, ce qui rend impossible une bascule vers l'API payante.
@@ -305,7 +305,11 @@ Du harnais Phase 0A (`harness/run-phase0a.mjs`), on reprend : `STRIP_ENV`, la li
 - Format interne des événements du fil d'activité.
 - Style visuel de la page.
 
-## 16. Points ouverts pour l'utilisateur
+## 16. Décisions prises pendant la relecture
 
-- [OUVERT-1] **Commandes autorisées pour Claude.** Créer un projet demande de lancer des commandes (installer des paquets, lancer les tests). Voir la question posée à l'utilisateur.
-- [OUVERT-2] Confirmation des valeurs par défaut des garde-fous (§7), en particulier la transformation « 8 appels Codex par mission » → « 8 par tâche, plafond 80 ».
+- **Commandes de Claude : liste blanche par projet** [DÉCIDÉ, option a].
+  - Au moment du plan, le superviseur propose une courte liste de commandes : tests, compilation, lancement local. L'utilisateur la valide ou la modifie avec le plan. Elle est stockée dans la mission.
+  - Claude reçoit uniquement ces commandes, sous forme de règles `Bash(<commande exacte>)` dans `--allowedTools`. Avec `--permission-mode dontAsk`, toute autre commande est refusée.
+  - **Installation de paquets** (`npm install <x>`, `pip install`…) : jamais dans la liste. Claude la signale dans `needs_approval[]` de son rapport. L'orchestrateur affiche alors une décision sur la page (« Claude veut installer xlsx »). Si l'utilisateur autorise, **l'orchestrateur exécute lui-même l'installation** dans le dossier du projet, puis relance la tâche. Claude ne lance jamais d'installation.
+  - Les commandes de vérification relancées par l'orchestrateur (§7, preuves) sont les mêmes que celles de la liste blanche.
+- **Limites d'appels Codex** [DÉCIDÉ] : 8 par tâche, 80 par projet, 30 par jour, tous projets confondus. Quand une limite est atteinte : pause et question à l'utilisateur.
