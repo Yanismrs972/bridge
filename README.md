@@ -4,14 +4,15 @@ Projet pour mettre en relation Claude et ChatGPT : on confie un objectif à Chat
 
 ## État actuel
 
-Le projet est en **phase de conception**. Rien n'est installé ni branché sur les vraies IA.
-Le dernier état validé est la **Phase 0B v19 + annexe v19.1** : cadrage documentaire de la sécurité (isolation par machine virtuelle, broker, pare-feu). Implémentation, installation et appels réels aux agents : **NO-GO** tant qu'ils ne sont pas autorisés explicitement.
+Les décisions en vigueur pour Bridge v1 sont dans [docs/REFERENCE.md](docs/REFERENCE.md), qui fait autorité.
+Phase actuelle : développement de Bridge v1 en simulation. Mode réel R0 : non autorisé à ce jour.
 
 ## Contenu
 
 | Dossier | Contenu |
 |---|---|
-| `docs/rapports/` | Les 28 rapports de conception, dans l'ordre (voir `INDEX.md`) |
+| `docs/REFERENCE.md` | Décisions en vigueur pour Bridge v1 (référence faisant autorité) |
+| `docs/rapports/` | Les 28 rapports de conception historiques, dans l'ordre (voir `INDEX.md`) |
 | `harness/` | Le harnais de test de la Phase 0A : script Node `run-phase0a.mjs`, schémas JSON, projet d'exemple (`fixture/`) |
 | `simulations/phase0a1/` | Résultats de la simulation Phase 0A.1 (sans appel aux vraies IA) |
 

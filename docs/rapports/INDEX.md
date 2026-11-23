@@ -1,6 +1,6 @@
 # Rapports de conception (session « Orchestrateur IA »)
 
-Rapports rédigés du 16 au 18 novembre 2026, dans l'ordre chronologique. Le dernier état est la Phase 0B v19 + annexe v19.1.
+Rapports historiques rédigés du 16 au 18 novembre 2026, dans l'ordre chronologique, conservés sans modification. Ils ne font pas autorité : les décisions en vigueur pour Bridge v1 sont dans [../REFERENCE.md](../REFERENCE.md).
 
 | N° | Rapport | Date (UTC) |
 |---|---|---|
