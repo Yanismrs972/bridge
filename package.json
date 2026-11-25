@@ -1,0 +1,23 @@
+{
+  "name": "bridge",
+  "version": "1.0.0-alpha.1",
+  "private": true,
+  "description": "Bridge v1 : orchestrateur local ChatGPT/Codex (superviseur) et Claude Code (exécutant). Mode simulation par défaut.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "bin": {
+    "bridge": "dist/src/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "pretest": "tsc -p tsconfig.json",
+    "start": "node dist/src/cli.js",
+    "test": "node --test dist/test/bridge.test.js"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.7",
+    "typescript": "6.0.3"
+  }
+}

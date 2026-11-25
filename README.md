@@ -22,3 +22,19 @@ git clone https://github.com/Yanismrs972/bridge.git
 ```
 
 Les clés API (fichier `.env`) ne sont pas envoyées sur GitHub : recopie-les à la main sur chaque PC.
+
+## Bridge v1 (minimal) : démarrer
+
+Prérequis : Node.js 22.13 ou plus récent. Dans le dossier `bridge` :
+
+```
+npm install
+npm run build
+bridge.cmd
+```
+
+Ouvrir ensuite http://127.0.0.1:4317/ dans le navigateur, choisir un scénario, cliquer « Lancer la mission » et approuver ou refuser les étapes.
+
+- Mode **simulation** uniquement : les agents sont simulés, aucun appel réseau, aucun coût. `--real` est refusé.
+- `bridge.cmd --port 4318` change le port. `npm test` lance les tests.
+- Les missions sont écrites dans `.bridge-data/` (copie du projet d'exemple, jamais un vrai projet).
